@@ -14,6 +14,8 @@
 #import "MWPhotoBrowserPrivate.h"
 #import "UIImage+MWPhotoBrowser.h"
 
+static const CGFloat minZoomToExit = 0.8f;
+
 // Private methods and properties
 @interface MWZoomingScrollView () {
     
@@ -385,7 +387,7 @@
     CGFloat alpha = currentScale / 0.8f - 0.2f;
     _photoBrowser.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:alpha];
     
-    _shouldExit = currentScale <= 0.4f;
+    _shouldExit = currentScale <= minZoomToExit;
     
     //    NSLog(@"%s %@", __PRETTY_FUNCTION__, NSStringFromCGRect(_photoImageView.frame));
 }
