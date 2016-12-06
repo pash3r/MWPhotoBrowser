@@ -184,13 +184,14 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self reloadData];
     
     // Swipe to dismiss
-    //    if (_enableSwipeToDismiss) {
-    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-    
-    [panGesture setMinimumNumberOfTouches:1];
-    [panGesture setMaximumNumberOfTouches:1];
-    
-    [self.view addGestureRecognizer:panGesture];
+    if (_enableSwipeToDismiss) {
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        
+        [panGesture setMinimumNumberOfTouches:1];
+        [panGesture setMaximumNumberOfTouches:1];
+        
+        [self.view addGestureRecognizer:panGesture];
+    }
     
     //        UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(doneButtonPressed:)];
     //        swipeGesture.direction = UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionUp;
